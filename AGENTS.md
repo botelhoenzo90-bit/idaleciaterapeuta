@@ -11,4 +11,5 @@
 
 - Use imported Lovable Asset pointers for supplied photos so media stays CDN-hosted and replacements remain explicit.
 - Keep site presentation in the global stylesheet and site Button variants so spacing and interactions share one design system.
+- Use the shared Embla-backed Carousel for the clinic photo gallery so arrow, keyboard and swipe navigation use the existing controls.
 - Render the location map with Google Maps Embed using the connector's public browser key; keep provisional coordinates visibly distinguished from the clinic address to prevent incorrect directions.
