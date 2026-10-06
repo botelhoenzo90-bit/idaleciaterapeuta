@@ -208,7 +208,7 @@ function Index() {
           </div>
           <div className="video-frame">
             {clinicVideoUrl ? (
-              <video controls preload="metadata" playsInline poster={portrait.url}>
+              <video controls preload="metadata" playsInline src={clinicVideoUrl}>
                 <source src={clinicVideoUrl} />
                 Seu navegador não consegue reproduzir este vídeo.
               </video>
