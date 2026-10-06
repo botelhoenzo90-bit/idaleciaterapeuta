@@ -9,5 +9,5 @@
 - [x] Inserir Google Maps com localização provisória identificada no centro de São Paulo.
 - [x] Adicionar botões nas seções de solução e benefícios; contato verificado.
 - [x] Ajustar identificação dos perfis fictícios sem apresentá-los como pacientes reais.
-- [ ] Atualizar endereço e Google Maps para Praça João Pessoa, nº 151 - Centro, Rio Tinto - PB, CEP: 58297-000.
+- [x] Atualizar endereço e Google Maps para Praça João Pessoa, nº 151 - Centro, Rio Tinto - PB, CEP: 58297-000.
 - [ ] Confirmar carregamento do mapa no site publicado — Google bloqueia a origem localhost usada na verificação.
