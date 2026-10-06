@@ -74,7 +74,7 @@ footer{background:var(--footer-surface);color:var(--footer-text);padding:44px 0 
 .video-play{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--foreground);box-shadow:0 8px 24px color-mix(in oklab,var(--foreground) 15%,transparent);margin-bottom:6px}
 @media(max-width:700px){
  .video-section-grid{grid-template-columns:1fr;gap:28px}
- .video-frame{aspect-ratio:16/10}
+ .video-frame{aspect-ratio:4/5}
  .video-placeholder{padding:28px 20px}
  .video-placeholder strong{font-size:23px}
 }
