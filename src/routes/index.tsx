@@ -12,11 +12,22 @@ import {
   Monitor,
   ShieldCheck,
   Sparkles,
-  Star,
   Video,
-  Users,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import portrait from "@/assets/idalecia-retrato.png.asset.json";
+import office from "@/assets/idalecia-consultorio.png.asset.json";
+import clinic from "@/assets/clinica-fachada.png.asset.json";
+import whatsappIcon from "@/assets/whatsapp.png.asset.json";
+import depression from "@/assets/depressao.webp.asset.json";
+import anxiety from "@/assets/ansiedade.png.asset.json";
+import dependency from "@/assets/dependencia-emocional.png.asset.json";
+import fears from "@/assets/medos.png.asset.json";
+import trauma from "@/assets/traumas.png.asset.json";
+import panic from "@/assets/panico.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,8 +38,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia e entre em contato para consultar disponibilidade." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=88" },
-      { name: "twitter:image", content: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=88" },
     ],
   }),
   component: Index,
@@ -48,6 +57,8 @@ const issues = [
   ["Relacionamentos", "Mais clareza para lidar com conflitos, inseguranças e padrões repetitivos."],
   ["Perdas e luto", "Um espaço seguro para atravessar mudanças e experiências de perda."],
 ];
+
+const issueImages = [depression, anxiety, dependency, fears, trauma, panic];
 
 const reviews = [
   { title: "Acolhimento", text: "Um espaço de escuta, respeito e acolhimento para que você possa falar sobre o que realmente sente.", icon: HeartHandshake },
@@ -71,24 +82,23 @@ function goWhatsapp(message: string) {
 
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const carousel = useRef<HTMLDivElement>(null);
 
   return (
     <main className="site">
       <section className="hero" id="inicio">
-        <div className="hero-glow"/>
+        <div className="hero-background"><img src={portrait.url} alt="Idalécia da Guia, Terapeuta TRG" fetchPriority="high" /></div>
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="hero-identity">
-              <div className="hero-name">Idalécia da Guia</div>
-              <div className="hero-title">Terapeuta TRG</div>
-              <div className="hero-divider"></div>
-              </div>
-            <h1>Reestruture seu emocional e <em>liberte-se de padrões</em> que ainda causam sofrimento.</h1>
-            <p className="hero-lead">Terapia TRG para pessoas que enfrentam ansiedade, depressão, dependência emocional, traumas, medos e outras dificuldades emocionais.</p>
-            <p className="hero-meta"><Monitor size={16}/> Atendimento presencial e online <span>•</span> <ShieldCheck size={16}/> Certificação internacional</p>
+            <span className="eyebrow">CUIDADO COM A SUA HISTÓRIA</span>
+            <h1>Idalécia <em>da Guia</em></h1>
+            <p className="hero-title">Terapeuta TRG</p>
+            <p className="hero-statement">Um espaço para acolher suas emoções e compreender os padrões que ainda causam sofrimento.</p>
+            <p className="hero-lead">Atendimento individualizado para ansiedade, depressão, dependência emocional, traumas e outras dificuldades emocionais.</p>
+            <div className="hero-credentials"><span><ShieldCheck size={17}/> Certificação internacional</span><span><Monitor size={17}/> Presencial e online</span></div>
             <div className="hero-actions">
-              <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa sobre a Terapia TRG.")}><MessageCircle size={19}/> Quero iniciar meu processo</button>
-              <a className="btn btn-ghost" href="#processo">Conhecer o processo <ArrowRight size={18}/></a>
+              <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa sobre a Terapia TRG.")}><MessageCircle/> Agendar uma conversa</Button>
+              <Button variant="siteGhost" size="site" asChild><a href="#processo">Conhecer o processo <ArrowRight/></a></Button>
             </div>
           </div>
         </div>
@@ -98,10 +108,10 @@ function Index() {
 
       <section className="section intro-section">
         <div className="container narrow center">
-          <span className="eyebrow">VOCÊ NÃO PRECISA IGNORAR O QUE SENTE</span>
+          <span className="eyebrow">QUANDO O EMOCIONAL PEDE CUIDADO</span>
           <h2>Quando algo dentro de você pede <em>atenção</em>, ouvir pode ser o primeiro passo.</h2>
           <p>Existem padrões emocionais que se repetem, medos que limitam, relações que machucam e sentimentos que parecem difíceis de explicar. A terapia cria um espaço seguro para olhar para tudo isso com mais consciência e cuidado.</p>
-          <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></button>
+          <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
         </div>
       </section>
 
@@ -112,12 +122,20 @@ function Index() {
             <h2>O que está acontecendo com você <em>merece ser compreendido.</em></h2>
             <p>O acompanhamento é individualizado e pode abordar diferentes dificuldades emocionais e comportamentais.</p>
           </div>
-          <div className="issue-window"><div className="issue-track">
-            {[...issues, ...issues].map(([title,text], i) => (
-              <article className="issue-card" key={i}><div className="issue-number">{String((i % issues.length)+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p></article>
-            ))}
+          <div className="carousel-controls">
+            <Button variant="siteGhost" size="icon" aria-label="Questões anteriores" onClick={() => carousel.current?.scrollBy({left:-330,behavior:"smooth"})}><ChevronLeft/></Button>
+            <Button variant="siteGhost" size="icon" aria-label="Próximas questões" onClick={() => carousel.current?.scrollBy({left:330,behavior:"smooth"})}><ChevronRight/></Button>
+          </div>
+          <div className="issue-window" ref={carousel}><div className="issue-track">
+            {issues.map(([title,text], i) => {
+              const image = issueImages[i];
+              return <article className="issue-card" key={title}>
+                {image ? <img className="issue-image" src={image.url} alt={title} loading="lazy"/> : <div className="issue-symbol"><HeartHandshake size={36}/></div>}
+                <div className="issue-body"><div className="issue-number">{String(i+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p></div>
+              </article>;
+            })}
           </div></div>
-          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></button></div>
+          <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
@@ -136,7 +154,7 @@ function Index() {
               ["04","Novos caminhos","O objetivo é ampliar consciência e construir formas mais saudáveis de lidar com suas experiências."]
             ].map(([n,t,d]) => <article className="step" key={n}><div className="step-num">{n}</div><div><h3>{t}</h3><p>{d}</p></div></article>)}
           </div>
-          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button></div>
+          <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
@@ -147,28 +165,28 @@ function Index() {
             <h2>Mais do que uma sessão: um lugar para <em>se ouvir.</em></h2>
             <p>O atendimento foi pensado para oferecer uma experiência tranquila, reservada e acolhedora, onde você possa desacelerar e falar sobre aquilo que muitas vezes fica guardado.</p>
             <p>Seja presencialmente ou online, cada contato busca preservar sua individualidade e criar um ambiente de confiança para o seu processo.</p>
-            <div className="clinic-placeholder"><div className="placeholder-inner"><Sparkles size={28}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div></div>
+            
             <div className="clinic-highlights">
               <div><ShieldCheck size={18}/><span><strong>Privacidade</strong>Um atendimento reservado e individual.</span></div>
               <div><HeartHandshake size={18}/><span><strong>Acolhimento</strong>Escuta respeitosa, sem julgamentos.</span></div>
               <div><Monitor size={18}/><span><strong>Flexibilidade</strong>Opções presencial e online.</span></div>
             </div>
-            <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></button>
+            <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></Button>
           </div>
+          <figure className="clinic-photo"><img src={office.url} alt="Idalécia em seu espaço de atendimento" loading="lazy"/></figure>
         </div>
       </section>
 
       <section className="section about" id="sobre">
         <div className="container about-grid">
-          <div className="about-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=88" alt="Ambiente tranquilo para atendimento" /><div className="credential"><ShieldCheck size={20}/><span>Certificação internacional<br/><strong>Transtornos emocionais graves</strong></span></div></div>
+          <figure className="about-image"><img src={portrait.url} alt="Retrato profissional de Idalécia da Guia" loading="lazy"/></figure>
           <div className="about-copy">
             <span className="eyebrow">SOBRE IDALÉCIA DA GUIA</span>
             <h2>Conhecimento, acolhimento e um olhar <em>individualizado.</em></h2>
-            <div className="idalecia-photo-placeholder"><Users size={24}/><strong>Foto da Idalécia</strong><span>Área reservada para a foto profissional</span></div>
             <p>Idalécia da Guia é Terapeuta TRG, com especialização complementar em Leitura Corporal e Comportamental e certificação internacional em transtornos emocionais graves.</p>
             <p>Seu trabalho parte de uma escuta cuidadosa para compreender a pessoa além do sintoma, considerando padrões emocionais, experiências e comportamentos que fazem parte da sua história.</p>
             <div className="about-points"><div><Check size={17}/> Atendimento individual</div><div><Check size={17}/> Online e presencial</div><div><Check size={17}/> Leitura Corporal e Comportamental</div></div>
-            <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button>
+            <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></Button>
           </div>
         </div>
       </section>
@@ -187,7 +205,7 @@ function Index() {
 
       <section className="section specialty">
         <div className="container specialty-grid">
-          <div><span className="eyebrow">ABORDAGEM COMPLEMENTAR</span><h2>Leitura Corporal e <em>Comportamental</em></h2><p>O corpo também expressa formas de sentir, reagir e se relacionar. A leitura corporal e comportamental pode complementar o olhar terapêutico para ampliar a compreensão sobre padrões individuais.</p><button className="btn btn-light" onClick={() => goWhatsapp("Olá, Idalécia! Quero saber mais sobre a Leitura Corporal e Comportamental.")}>Quero saber mais <ArrowRight size={18}/></button></div>
+          <div><span className="eyebrow">ABORDAGEM COMPLEMENTAR</span><h2>Leitura Corporal e <em>Comportamental</em></h2><p>O corpo também expressa formas de sentir, reagir e se relacionar. A leitura corporal e comportamental pode complementar o olhar terapêutico para ampliar a compreensão sobre padrões individuais.</p><Button variant="siteLight" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero saber mais sobre a Leitura Corporal e Comportamental.")}>Quero saber mais <ArrowRight size={18}/></Button></div>
           <div className="specialty-quote"><Brain size={32}/><p>“Compreender seus padrões pode ser o começo de uma nova forma de se relacionar consigo mesmo.”</p></div>
         </div>
       </section>
@@ -203,33 +221,33 @@ function Index() {
 
       <section className="section reviews">
         <div className="container">
-          <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Uma experiência baseada em <em>acolhimento e confiança.</em></h2><p>Espaço reservado para avaliações reais de pessoas atendidas pela Idalécia.</p></div>
-          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={15} fill="currentColor"/>)}</div><p className="review-copy">“{copy}”</p><div className="review-person"><div className="review-avatar"><Users size={17}/></div><div><strong>Mariana Alves</strong><span>Depoimento ilustrativo</span></div></div></article>)}</div></div>
-          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></button></div>
+          <div className="section-heading center"><span className="eyebrow">ACOLHIMENTO E CONFIANÇA</span><h2>Cuidado em cada etapa do <em>seu processo.</em></h2></div>
+          <div className="review-grid">{reviews.map(({title,text:copy,icon:Icon})=><article key={title}><div className="review-icon"><Icon size={24}/></div><h3>{title}</h3><p>{copy}</p></article>)}</div>
+          <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
       <section className="section location">
         <div className="container location-grid">
-          <div className="location-card"><div className="location-art"><iframe title="Mapa de localização" src="https://www.google.com/maps?q=Rua%20das%20Flores%2C%20100%2C%20Centro%2C%20Curitiba%20-%20PR&output=embed" loading="lazy"></iframe><div className="map-label"><MapPin size={18}/><span>Localização provisória</span><small>Endereço será atualizado posteriormente</small></div></div></div>
-          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></button></div>
+          <figure className="location-photo"><img src={clinic.url} alt="Fachada da clínica DiagnoClin" loading="lazy"/><figcaption><MapPin size={18}/> Atendimento presencial</figcaption></figure>
+          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></Button></div>
         </div>
       </section>
 
       <section className="section faq" id="faq">
         <div className="container faq-grid">
-          <div className="faq-intro"><span className="eyebrow">PERGUNTAS FREQUENTES</span><h2>Talvez a sua dúvida esteja <em>aqui.</em></h2><p>Se ainda não encontrou a resposta que procura, fale diretamente com a Idalécia.</p><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Tenho uma dúvida sobre a terapia.")}>Tirar uma dúvida <MessageCircle size={18}/></button></div>
-          <div className="faq-list">{faq.map(([q,a],i)=><div className={`faq-item ${openFaq===i ? "open":""}`} key={q}><button onClick={() => setOpenFaq(openFaq===i ? null : i)}><span>{q}</span><ChevronDown size={18}/></button>{openFaq===i && <p>{a}</p>}</div>)}</div>
+          <div className="faq-intro"><span className="eyebrow">PERGUNTAS FREQUENTES</span><h2>Talvez a sua dúvida esteja <em>aqui.</em></h2><p>Se ainda não encontrou a resposta que procura, fale diretamente com a Idalécia.</p><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Tenho uma dúvida sobre a terapia.")}>Tirar uma dúvida <MessageCircle size={18}/></Button></div>
+          <div className="faq-list">{faq.map(([q,a],i)=><div className={`faq-item ${openFaq===i ? "open":""}`} key={q}><Button variant="sitePlain" size="site" aria-expanded={openFaq===i} onClick={() => setOpenFaq(openFaq===i ? null : i)}><span>{q}</span><ChevronDown size={18}/></Button>{openFaq===i && <p>{a}</p>}</div>)}</div>
         </div>
       </section>
 
       <section className="final-cta">
-        <div className="container center"><span className="eyebrow">SEU PROCESSO COMEÇA COM UMA CONVERSA</span><h2>Você não precisa ter todas as respostas para <em>dar o primeiro passo.</em></h2><p>Converse com a Idalécia, explique o que você está vivendo e descubra como funciona o atendimento.</p><button className="btn btn-light" onClick={() => goWhatsapp("Olá, Idalécia! Quero dar o primeiro passo e conhecer a Terapia TRG.")}>Quero conversar com a Idalécia <ArrowRight size={19}/></button></div>
+        <div className="container center"><span className="eyebrow">SEU PROCESSO COMEÇA COM UMA CONVERSA</span><h2>Você não precisa ter todas as respostas para <em>dar o primeiro passo.</em></h2><p>Converse com a Idalécia, explique o que você está vivendo e descubra como funciona o atendimento.</p><Button variant="siteLight" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero dar o primeiro passo e conhecer a Terapia TRG.")}>Quero conversar com a Idalécia <ArrowRight size={19}/></Button></div>
       </section>
 
-      <footer><div className="container footer-grid"><div><div className="brand footer-brand">Idalécia <span>da Guia</span></div><p>Terapeuta TRG<br/>Leitura Corporal e Comportamental</p></div><div><strong>Atendimento</strong><span>Online e presencial</span><span>Consulte horários</span></div><div><strong>Contato</strong><button onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de agendar um atendimento.")}><MessageCircle size={16}/> WhatsApp</button><a href="#inicio"><Instagram size={16}/> Instagram</a></div></div><div className="footer-bottom">© {new Date().getFullYear()} Idalécia da Guia. Todos os direitos reservados.</div></footer>
+      <footer><div className="container footer-grid"><div><div className="brand footer-brand">Idalécia <span>da Guia</span></div><p>Terapeuta TRG<br/>Leitura Corporal e Comportamental</p></div><div><strong>Atendimento</strong><span>Online e presencial</span><span>Consulte horários</span></div><div><strong>Contato</strong><Button variant="sitePlain" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de agendar um atendimento.")}><MessageCircle size={16}/> WhatsApp</Button><a href="#inicio"><Instagram size={16}/> Instagram</a></div></div><div className="footer-bottom">© {new Date().getFullYear()} Idalécia da Guia. Todos os direitos reservados.</div></footer>
 
-      <button className="floating-whatsapp" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de saber mais sobre a Terapia TRG.")} aria-label="Falar no WhatsApp"><MessageCircle size={25}/></button>
+      <Button variant="whatsapp" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de saber mais sobre a Terapia TRG.")} aria-label="Falar no WhatsApp"><img src={whatsappIcon.url} alt=""/></Button>
     </main>
   );
 }
