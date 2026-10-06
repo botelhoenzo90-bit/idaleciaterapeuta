@@ -19,6 +19,7 @@ import {
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { clinicAddress, getClinicMapUrl } from "@/lib/clinic-location";
 import portrait from "@/assets/idalecia-retrato.png.asset.json";
 import office from "@/assets/idalecia-consultorio.png.asset.json";
 import clinic from "@/assets/clinica-fachada.png.asset.json";
@@ -61,9 +62,7 @@ export const Route = createFileRoute("/")({
 
 const whatsapp = "https://wa.me/5583988655463";
 const mapsBrowserKey = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
-const provisionalMapUrl = mapsBrowserKey
-  ? `https://www.google.com/maps/embed/v1/view?key=${encodeURIComponent(mapsBrowserKey)}&center=-23.55052,-46.633308&zoom=14&maptype=roadmap`
-  : undefined;
+const clinicMapUrl = getClinicMapUrl(mapsBrowserKey);
 
 const issues = [
   ["Depressão", "Acolhimento e organização emocional para momentos de desânimo e perda de sentido."],
@@ -251,10 +250,10 @@ function Index() {
       <section className="section location">
         <div className="container location-grid">
           <figure className="location-map">
-            {provisionalMapUrl ? <iframe title="Google Maps — localização provisória no centro de São Paulo" src={provisionalMapUrl} loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/> : <div className="location-map-pending"><MapPin size={36}/><p>Mapa temporariamente indisponível.</p></div>}
-            <figcaption>Localização provisória: centro de São Paulo. Não é o endereço da clínica.</figcaption>
+            {clinicMapUrl ? <iframe title="Google Maps — clínica em Rio Tinto, PB" src={clinicMapUrl} loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/> : <div className="location-map-pending"><MapPin size={36}/><p>Mapa temporariamente indisponível.</p></div>}
+            <figcaption>{clinicAddress.street}<br/>{clinicAddress.city}<br/>CEP: {clinicAddress.postalCode}</figcaption>
           </figure>
-          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></Button></div>
+          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>{clinicAddress.street}<br/>{clinicAddress.city}<br/>CEP: {clinicAddress.postalCode}</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></Button></div>
         </div>
       </section>
 
