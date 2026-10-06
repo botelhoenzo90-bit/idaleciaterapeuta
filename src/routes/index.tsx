@@ -18,7 +18,21 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export const Route = createFileRoute("/")({ component: Index });
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Idalécia da Guia | Terapia TRG presencial e online" },
+      { name: "description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia, as questões trabalhadas e as modalidades presencial e online." },
+      { property: "og:title", content: "Idalécia da Guia | Terapia TRG presencial e online" },
+      { property: "og:description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia e entre em contato para consultar disponibilidade." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=88" },
+      { name: "twitter:image", content: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=88" },
+    ],
+  }),
+  component: Index,
+});
 
 const whatsapp = "https://wa.me/5583988655463";
 
@@ -197,7 +211,7 @@ function Index() {
       <section className="section faq" id="faq">
         <div className="container faq-grid">
           <div className="faq-intro"><span className="eyebrow">PERGUNTAS FREQUENTES</span><h2>Talvez a sua dúvida esteja <em>aqui.</em></h2><p>Se ainda não encontrou a resposta que procura, fale diretamente com a Idalécia.</p><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Tenho uma dúvida sobre a terapia.")}>Tirar uma dúvida <MessageCircle size={18}/></button></div>
-          <div className="faq-list">{faq.map(([q,a],i)=><div className={`faq-item ${openFaq===i ? "open":""`} key={q}><button onClick={() => setOpenFaq(openFaq===i ? null : i)}><span>{q}</span><ChevronDown size={18}/></button>{openFaq===i && <p>{a}</p>}</div>)}</div>
+          <div className="faq-list">{faq.map(([q,a],i)=><div className={`faq-item ${openFaq===i ? "open":""}`} key={q}><button onClick={() => setOpenFaq(openFaq===i ? null : i)}><span>{q}</span><ChevronDown size={18}/></button>{openFaq===i && <p>{a}</p>}</div>)}</div>
         </div>
       </section>
 
