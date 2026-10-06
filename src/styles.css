@@ -10,7 +10,7 @@
  --border: #d8cbc8; --input: var(--border); --ring: var(--primary);
  --paper: #faf6f2; --ink: var(--foreground); --sage: #d3b370;
  --sage-dark: var(--primary); --soft: var(--muted); --warm: #f7f1eb;
- --name-purple: #7a4ea3; --hero-light: #f5f0ea; --review-star: #d3b370; --hero-surface: #552e45; --hero-text: #fffaf7; --hero-muted: #eadde4;
+ --name-purple: var(--primary); --hero-light: #f5f0ea; --review-star: #d3b370; --hero-surface: #552e45; --hero-text: #fffaf7; --hero-muted: #eadde4;
  --footer-surface: #3f2434; --footer-text: #eadde4;
  --shadow-card: 0 6px 20px color-mix(in oklab,var(--foreground) 7%,transparent);
  --shadow-button: 0 6px 16px color-mix(in oklab,var(--primary) 18%,transparent);
