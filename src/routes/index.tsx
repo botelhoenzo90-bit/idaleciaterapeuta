@@ -107,7 +107,6 @@ function Index() {
       <section className="hero" id="inicio">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">CUIDADO COM A SUA HISTÓRIA</span>
             <h1>Idalécia <em>da Guia</em></h1>
             <p className="hero-title">Terapeuta TRG</p>
             <p className="hero-statement">Um espaço para acolher suas emoções e compreender os padrões que ainda causam sofrimento.</p>
