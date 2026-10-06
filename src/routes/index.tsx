@@ -238,8 +238,9 @@ function Index() {
 
       <section className="section reviews">
         <div className="container reviews-container">
-          <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Acolhimento que faz parte de <em>cada encontro.</em></h2><p>Avaliações ilustrativas com nomes fictícios — não representam depoimentos reais.</p></div>
+          <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Acolhimento que faz parte de <em>cada encontro.</em></h2><p>Ser ouvido com respeito pode ser o primeiro passo para um novo começo.</p></div>
           <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({name,text})=><article className="review-card" key={name}><div className="review-stars" aria-label="Cinco estrelas ilustrativas">{[0,1,2,3,4].map(star=><Star key={star} size={18}/>)}</div><p>{text}</p><div className="review-person"><div className="review-avatar"><UserRound size={24}/></div><div className="review-person-info"><h3>{name}</h3><span>Paciente da clínica</span></div></div></article>)}</div>)}</div></div>
+          <p className="review-preview-note">Prévia para apresentação: nomes e depoimentos fictícios.</p>
           <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
