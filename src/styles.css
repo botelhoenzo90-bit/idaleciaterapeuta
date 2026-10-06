@@ -2,18 +2,18 @@
 @import "tw-animate-css";
 
 :root {
- --background: oklch(0.985 0.004 155); --foreground: oklch(0.28 0.025 164);
- --primary: oklch(0.43 0.045 164); --primary-foreground: oklch(0.99 0.002 155);
- --secondary: oklch(0.93 0.017 155); --secondary-foreground: var(--foreground);
- --muted: oklch(0.95 0.009 155); --muted-foreground: oklch(0.49 0.022 164);
- --accent: oklch(0.9 0.035 155); --accent-foreground: var(--foreground);
- --border: oklch(0.87 0.015 155); --input: var(--border); --ring: var(--primary);
- --paper: oklch(1 0 0); --ink: var(--foreground); --sage: oklch(0.58 0.035 164);
- --sage-dark: var(--primary); --soft: var(--muted); --warm: oklch(0.96 0.006 155);
- --hero-light: oklch(0.975 0.012 155); --review-star: oklch(0.72 0.14 82); --hero-surface: oklch(0.2 0.008 165); --hero-text: oklch(0.99 0.003 155); --hero-muted: oklch(0.85 0.016 155);
- --footer-surface: oklch(0.25 0.023 164); --footer-text: oklch(0.83 0.019 155);
- --shadow-card: 0 6px 20px color-mix(in oklab,var(--foreground) 5%,transparent);
- --shadow-button: 0 6px 16px color-mix(in oklab,var(--primary) 15%,transparent);
+ --background: #f5f0ea; --foreground: #30282d;
+ --primary: #552e45; --primary-foreground: #fffaf7;
+ --secondary: #eadfe4; --secondary-foreground: var(--foreground);
+ --muted: #f0e9e4; --muted-foreground: #5d565a;
+ --accent: #d3b370; --accent-foreground: var(--foreground);
+ --border: #d8cbc8; --input: var(--border); --ring: var(--primary);
+ --paper: #faf6f2; --ink: var(--foreground); --sage: #d3b370;
+ --sage-dark: var(--primary); --soft: var(--muted); --warm: #f7f1eb;
+ --hero-light: #f5f0ea; --review-star: #d3b370; --hero-surface: #552e45; --hero-text: #fffaf7; --hero-muted: #eadde4;
+ --footer-surface: #3f2434; --footer-text: #eadde4;
+ --shadow-card: 0 6px 20px color-mix(in oklab,var(--foreground) 7%,transparent);
+ --shadow-button: 0 6px 16px color-mix(in oklab,var(--primary) 18%,transparent);
  --hero-overlay: linear-gradient(90deg,var(--hero-surface) 0%, color-mix(in oklab,var(--hero-surface) 96%,transparent) 37%,color-mix(in oklab,var(--hero-surface) 40%,transparent) 63%,transparent 78%);
  --font-body: "Segoe UI", system-ui, sans-serif; --font-heading: Georgia, serif;
 }
@@ -55,8 +55,26 @@ footer{background:var(--footer-surface);color:var(--footer-text);padding:44px 0 
 /* Full-width issues and testimonial layout */
 .issues-container{width:100%;max-width:none}.issues-container .section-heading{width:calc(100% - 40px)}
 .reviews-container{width:100%;max-width:none}.reviews-container .section-heading{width:calc(100% - 40px)}.reviews-container .action{width:calc(100% - 40px);margin-inline:auto}.review-window{padding-block:24px}.review-card{height:auto;overflow:visible}.review-card p{overflow-wrap:anywhere}
-.clinic-gallery{min-width:0;width:100%;padding-inline:0}.clinic-slide{height:560px;display:flex;justify-content:center;align-items:center}.clinic-slide img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;border-radius:24px}.clinic-gallery .clinic-arrow{width:40px;height:40px;min-height:0;padding:0;border-radius:50%;background:var(--paper);box-shadow:var(--shadow-card)}.clinic-gallery .clinic-arrow-prev{left:8px}.clinic-gallery .clinic-arrow-next{right:8px}
+.clinic-gallery{min-width:0;width:100%;padding-inline:0}.clinic-slide{height:620px;display:flex;justify-content:center;align-items:center}.clinic-slide img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;border-radius:24px}.clinic-gallery .clinic-arrow{width:40px;height:40px;min-height:0;padding:0;border-radius:50%;background:var(--paper);box-shadow:var(--shadow-card)}.clinic-gallery .clinic-arrow-prev{left:8px}.clinic-gallery .clinic-arrow-next{right:8px}
 .review-stars{display:flex;justify-content:center;gap:5px;color:var(--review-star);margin-bottom:14px}.review-stars svg{fill:currentColor}.review-card{min-height:0;padding:24px}.review-card>p{flex:1;display:grid;place-items:center;line-height:1.7}.review-person{display:flex;align-items:center;justify-content:center;margin-top:18px;gap:12px;width:100%}.review-avatar{width:48px;height:48px;flex-shrink:0;background:var(--secondary);color:var(--primary);border-radius:50%;display:grid;place-items:center}.review-person-info{display:flex;flex-direction:column;gap:4px;text-align:left;min-width:0}.review-person h3{font-family:var(--font-body);font-size:14px;font-weight:600;margin:0}.review-person-info>span{font-size:11px;color:var(--muted-foreground)}.review-preview-note{font-size:11px;line-height:1.6;color:var(--muted-foreground);margin:0 20px}
 .location-map-pending{min-height:430px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border-radius:24px;background:var(--muted);padding:32px}.location-map-pending>svg{color:var(--primary)}.location-map-pending h3,.location-map-pending p{margin:0}
 .location-map{width:100%;min-width:0;border-radius:24px;overflow:hidden;background:var(--paper);border:1px solid var(--border)}.location-map iframe{display:block;width:100%;height:430px;border:0}.location-map figcaption{padding:16px 20px;font-size:12px;line-height:1.6;color:var(--muted-foreground)}
 @media(max-width:700px){.clinic-gallery{grid-row:1}.clinic-slide{height:440px}.location-map-pending{min-height:300px}}
+
+
+.video-section{background:var(--paper)}
+.video-section-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.video-copy{min-width:0;display:flex;flex-direction:column;align-items:center}
+.video-copy p{max-width:620px}
+.video-frame{width:100%;min-width:0;aspect-ratio:16/9;border:1px solid var(--border);border-radius:28px;overflow:hidden;background:var(--primary);box-shadow:var(--shadow-card);display:flex;align-items:center;justify-content:center}
+.video-frame video{width:100%;height:100%;object-fit:cover;background:#000}
+.video-placeholder{width:100%;height:100%;padding:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--primary-foreground);background:linear-gradient(145deg,var(--primary),#6b3f5a)}
+.video-placeholder strong{font-family:var(--font-heading);font-size:27px;font-weight:400}
+.video-placeholder span{max-width:430px;font-size:13px;line-height:1.7;color:var(--hero-muted)}
+.video-play{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--foreground);box-shadow:0 8px 24px color-mix(in oklab,var(--foreground) 15%,transparent);margin-bottom:6px}
+@media(max-width:700px){
+ .video-section-grid{grid-template-columns:1fr;gap:28px}
+ .video-frame{aspect-ratio:16/10}
+ .video-placeholder{padding:28px 20px}
+ .video-placeholder strong{font-size:23px}
+}
