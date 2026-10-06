@@ -12,6 +12,8 @@ import {
   Monitor,
   ShieldCheck,
   Sparkles,
+  Star,
+  UserRound,
   Video,
 } from "lucide-react";
 import { useState } from "react";
@@ -74,10 +76,10 @@ const issues = [
 const issueImages = [depression, anxiety, dependency, fears, trauma, panic, insomnia, esteem, relationships, grief];
 
 const reviews = [
-  { title: "Acolhimento", text: "Um espaço de escuta, respeito e acolhimento para que você possa falar sobre o que realmente sente.", icon: HeartHandshake },
-  { title: "Clareza", text: "Um processo individualizado para compreender padrões emocionais e olhar para sua história com mais consciência.", icon: Brain },
-  { title: "Direcionamento", text: "Uma condução estruturada para observar suas dificuldades com mais segurança e construir novos caminhos.", icon: Sparkles },
-  { title: "Privacidade", text: "Atendimento pensado para respeitar sua individualidade, com opção presencial ou online.", icon: ShieldCheck },
+  { name: "Mariana S.", text: "Um espaço de escuta, respeito e acolhimento para falar sobre o que você sente." },
+  { name: "Camila R.", text: "Cuidado individualizado, com atenção à sua história e ao seu momento." },
+  { name: "Juliana M.", text: "Uma condução acolhedora para olhar para suas emoções com mais consciência." },
+  { name: "Ana P.", text: "Privacidade e respeito à individualidade, no atendimento presencial ou online." },
 ];
 
 const faq = [
@@ -127,7 +129,7 @@ function Index() {
       </section>
 
       <section className="section soft" id="especialidades">
-        <div className="container">
+        <div className="container issues-container">
           <div className="section-heading center">
             <span className="eyebrow">QUESTÕES TRABALHADAS</span>
             <h2>O que está acontecendo com você <em>merece ser compreendido.</em></h2>
@@ -137,7 +139,7 @@ function Index() {
             {[0, 1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>
               {issues.map(([title,text], i) => <article className="issue-card" key={title}>
                 <img className="issue-image" src={issueImages[i]?.url} alt={copy === 0 ? title : ""} loading="lazy"/>
-                <div className="issue-body"><div className="issue-number">{String(i+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p></div>
+                <div className="issue-body"><h3>{title}</h3><p>{text}</p></div>
               </article>)}
             </div>)}
           </div></div>
@@ -179,7 +181,10 @@ function Index() {
             </div>
             <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></Button>
           </div>
-          <figure className="clinic-photo"><img src={office.url} alt="Idalécia em seu espaço de atendimento" loading="lazy"/></figure>
+          <div className="clinic-gallery">
+            <figure className="clinic-photo"><img src={office.url} alt="Idalécia em seu espaço de atendimento" loading="lazy"/></figure>
+            <figure className="clinic-building"><img src={clinic.url} alt="Fachada da clínica DiagnoClin, espaço de atendimento" loading="lazy"/></figure>
+          </div>
         </div>
       </section>
 
@@ -227,15 +232,15 @@ function Index() {
 
       <section className="section reviews">
         <div className="container">
-          <div className="section-heading center"><span className="eyebrow">ACOLHIMENTO E CONFIANÇA</span><h2>Cuidado em cada etapa do <em>seu processo.</em></h2></div>
-          <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({title,text,icon:Icon})=><article className="review-card" key={title}><div className="review-icon"><Icon size={24}/></div><h3>{title}</h3><p>{text}</p></article>)}</div>)}</div></div>
+          <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Acolhimento que faz parte de <em>cada encontro.</em></h2><p>Avaliações ilustrativas com nomes fictícios — não representam depoimentos reais.</p></div>
+          <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({name,text})=><article className="review-card" key={name}><div className="review-stars" aria-label="Cinco estrelas ilustrativas">{[0,1,2,3,4].map(star=><Star key={star} size={18}/>)}</div><p>{text}</p><div className="review-person"><div className="review-avatar"><UserRound size={24}/></div><h3>{name}</h3><span>Exemplo ilustrativo</span></div></article>)}</div>)}</div></div>
           <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
       <section className="section location">
         <div className="container location-grid">
-          <figure className="location-photo"><img src={clinic.url} alt="Fachada da clínica DiagnoClin" loading="lazy"/><figcaption><MapPin size={18}/> Atendimento presencial</figcaption></figure>
+          <div className="location-map-pending"><MapPin size={36}/><h3>Localização do atendimento</h3><p>O endereço exato é confirmado no agendamento.</p><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Pode me enviar a localização da clínica no Google Maps?")}>Solicitar localização <MapPin size={18}/></Button></div>
           <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></Button></div>
         </div>
       </section>
