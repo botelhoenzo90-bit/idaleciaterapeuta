@@ -14,6 +14,7 @@ import {
   Sparkles,
   Star,
   Video,
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -81,11 +82,7 @@ function Index() {
               <div className="hero-name">Idalécia da Guia</div>
               <div className="hero-title">Terapeuta TRG</div>
               <div className="hero-divider"></div>
-              <div className="hero-credentials">
-                <span><ShieldCheck size={15}/> Certificação internacional</span>
-                <span><Monitor size={15}/> Atendimento presencial e online</span>
               </div>
-            </div>
             <h1>Reestruture seu emocional e <em>liberte-se de padrões</em> que ainda causam sofrimento.</h1>
             <p className="hero-lead">Terapia TRG para pessoas que enfrentam ansiedade, depressão, dependência emocional, traumas, medos e outras dificuldades emocionais.</p>
             <p className="hero-meta"><Monitor size={16}/> Atendimento presencial e online <span>•</span> <ShieldCheck size={16}/> Certificação internacional</p>
@@ -211,7 +208,7 @@ function Index() {
       <section className="section reviews">
         <div className="container">
           <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Uma experiência baseada em <em>acolhimento e confiança.</em></h2><p>Espaço reservado para avaliações reais de pessoas atendidas pela Idalécia.</p></div>
-          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={15} fill="currentColor"/>)}</div><div className="review-person"><div className="review-avatar">👤</div><div><strong>Paciente</strong><span>Atendimento terapêutico</span></div></div><p>“{copy}”</p></article>)}</div></div>
+          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={15} fill="currentColor"/>)}</div><p className="review-copy">“{copy}”</p><div className="review-person"><div className="review-avatar"><Users size={17}/></div><div><strong>Mariana Alves</strong><span>Depoimento ilustrativo</span></div></div></article>)}</div></div>
           <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></button></div>
         </div>
       </section>
