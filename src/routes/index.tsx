@@ -90,10 +90,8 @@ function Index() {
               <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa sobre a Terapia TRG.")}><MessageCircle size={19}/> Quero iniciar meu processo</button>
               <a className="btn btn-ghost" href="#processo">Conhecer o processo <ArrowRight size={18}/></a>
             </div>
-            <div className="trust-row">
-              <div><strong>TRG</strong><span>Terapia de Reprocessamento</span></div>
-              <div><strong>Online</strong><span>De onde você estiver</span></div>
-              <div><strong>Presencial</strong><span>Atendimento individual</span></div>
+            <div className="hero-space-image">
+              <div className="hero-space-placeholder"><Sparkles size={22}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div>
             </div>
           </div>
         </div>
@@ -173,6 +171,7 @@ function Index() {
             <p>Seu trabalho parte de uma escuta cuidadosa para compreender a pessoa além do sintoma, considerando padrões emocionais, experiências e comportamentos que fazem parte da sua história.</p>
             <div className="about-points"><div><Check size={17}/> Atendimento individual</div><div><Check size={17}/> Online e presencial</div><div><Check size={17}/> Leitura Corporal e Comportamental</div></div>
             <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button>
+            <div className="idalecia-photo-placeholder"><Users size={24}/><strong>Foto da Idalécia</strong><span>Área reservada para a foto profissional</span></div>
           </div>
         </div>
       </section>
@@ -216,7 +215,7 @@ function Index() {
       <section className="section location">
         <div className="container location-grid">
           <div className="location-card"><div className="location-art"><iframe title="Mapa de localização" src="https://www.google.com/maps?q=Rua%20das%20Flores%2C%20100%2C%20Centro%2C%20Curitiba%20-%20PR&output=embed" loading="lazy"></iframe><div className="map-label"><MapPin size={18}/><span>Localização provisória</span><small>Endereço será atualizado posteriormente</small></div></div></div>
-          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte os horários disponíveis diretamente com a Idalécia.</span></div></div><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></button></div>
+          <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></button></div>
         </div>
       </section>
 
