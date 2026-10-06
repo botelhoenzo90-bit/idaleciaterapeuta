@@ -90,9 +90,6 @@ function Index() {
               <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa sobre a Terapia TRG.")}><MessageCircle size={19}/> Quero iniciar meu processo</button>
               <a className="btn btn-ghost" href="#processo">Conhecer o processo <ArrowRight size={18}/></a>
             </div>
-            <div className="hero-space-image">
-              <div className="hero-space-placeholder"><Sparkles size={22}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div>
-            </div>
           </div>
         </div>
       </section>
@@ -150,6 +147,7 @@ function Index() {
             <h2>Mais do que uma sessão: um lugar para <em>se ouvir.</em></h2>
             <p>O atendimento foi pensado para oferecer uma experiência tranquila, reservada e acolhedora, onde você possa desacelerar e falar sobre aquilo que muitas vezes fica guardado.</p>
             <p>Seja presencialmente ou online, cada contato busca preservar sua individualidade e criar um ambiente de confiança para o seu processo.</p>
+            <div className="clinic-placeholder"><div className="placeholder-inner"><Sparkles size={28}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div></div>
             <div className="clinic-highlights">
               <div><ShieldCheck size={18}/><span><strong>Privacidade</strong>Um atendimento reservado e individual.</span></div>
               <div><HeartHandshake size={18}/><span><strong>Acolhimento</strong>Escuta respeitosa, sem julgamentos.</span></div>
@@ -157,7 +155,6 @@ function Index() {
             </div>
             <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></button>
           </div>
-          <div className="clinic-placeholder"><div className="placeholder-inner"><Sparkles size={28}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div></div>
         </div>
       </section>
 
@@ -167,11 +164,11 @@ function Index() {
           <div className="about-copy">
             <span className="eyebrow">SOBRE IDALÉCIA DA GUIA</span>
             <h2>Conhecimento, acolhimento e um olhar <em>individualizado.</em></h2>
+            <div className="idalecia-photo-placeholder"><Users size={24}/><strong>Foto da Idalécia</strong><span>Área reservada para a foto profissional</span></div>
             <p>Idalécia da Guia é Terapeuta TRG, com especialização complementar em Leitura Corporal e Comportamental e certificação internacional em transtornos emocionais graves.</p>
             <p>Seu trabalho parte de uma escuta cuidadosa para compreender a pessoa além do sintoma, considerando padrões emocionais, experiências e comportamentos que fazem parte da sua história.</p>
             <div className="about-points"><div><Check size={17}/> Atendimento individual</div><div><Check size={17}/> Online e presencial</div><div><Check size={17}/> Leitura Corporal e Comportamental</div></div>
             <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button>
-            <div className="idalecia-photo-placeholder"><Users size={24}/><strong>Foto da Idalécia</strong><span>Área reservada para a foto profissional</span></div>
           </div>
         </div>
       </section>
