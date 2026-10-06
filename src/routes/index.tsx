@@ -35,6 +35,7 @@ import esteem from "@/assets/autoestima.png.asset.json";
 import relationships from "@/assets/relacionamentos.png.asset.json";
 import grief from "@/assets/luto.png.asset.json";
 import sharePhoto from "@/assets/idalecia-compartilhar.jpg.asset.json";
+import idaleciaVideo from "@/assets/idalecia-video.mp4.asset.json";
 
 const siteUrl = "https://idaleciaterapeuta.lovable.app";
 const shareUrl = new URL(sharePhoto.url, siteUrl).href;
@@ -63,7 +64,7 @@ export const Route = createFileRoute("/")({
 const whatsapp = "https://wa.me/5583988655463";
 const mapsBrowserKey = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
 const clinicMapUrl = getClinicMapUrl(mapsBrowserKey);
-const clinicVideoUrl = "";
+const clinicVideoUrl = idaleciaVideo.url;
 
 const issues = [
   ["Depressão", "Acolhimento e organização emocional para momentos de desânimo e perda de sentido."],
