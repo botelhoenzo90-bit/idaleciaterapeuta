@@ -63,6 +63,7 @@ export const Route = createFileRoute("/")({
 const whatsapp = "https://wa.me/5583988655463";
 const mapsBrowserKey = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
 const clinicMapUrl = getClinicMapUrl(mapsBrowserKey);
+const clinicVideoUrl = "";
 
 const issues = [
   ["Depressão", "Acolhimento e organização emocional para momentos de desânimo e perda de sentido."],
@@ -192,6 +193,32 @@ function Index() {
             <CarouselPrevious variant="siteGhost" className="clinic-arrow clinic-arrow-prev" aria-label="Foto anterior" title="Foto anterior"/>
             <CarouselNext variant="siteGhost" className="clinic-arrow clinic-arrow-next" aria-label="Próxima foto" title="Próxima foto"/>
           </Carousel>
+        </div>
+      </section>
+
+
+      <section className="section video-section" id="video">
+        <div className="container video-section-grid">
+          <div className="video-copy">
+            <span className="eyebrow">CONHEÇA A IDALÉCIA</span>
+            <h2>Um pouco sobre a clínica e sobre <em>o seu processo.</em></h2>
+            <p>Assista ao vídeo em que Idalécia apresenta seu trabalho, o espaço de atendimento e a forma como conduz cada pessoa durante o processo terapêutico.</p>
+            <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de conhecer melhor o seu atendimento.")}>Quero conhecer o atendimento <ArrowRight size={18}/></Button>
+          </div>
+          <div className="video-frame">
+            {clinicVideoUrl ? (
+              <video controls preload="metadata" playsInline poster={portrait.url}>
+                <source src={clinicVideoUrl} />
+                Seu navegador não consegue reproduzir este vídeo.
+              </video>
+            ) : (
+              <div className="video-placeholder">
+                <div className="video-play"><Video size={30}/></div>
+                <strong>Seu vídeo será exibido aqui</strong>
+                <span>Espaço reservado para o vídeo da Idalécia falando sobre a clínica e o atendimento.</span>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
