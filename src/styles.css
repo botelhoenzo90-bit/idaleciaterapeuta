@@ -67,7 +67,7 @@ body,.site{text-align:center}
 .benefit-grid article{text-align:center}
 .reviews .section-heading{max-width:800px}
 .review-window{width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;padding:8px 0 24px}
-.review-track{display:flex;width:max-content;gap:16px;animation:reviewLoop 42s linear infinite}
+.review-track{display:flex;width:max-content;gap:16px;animation:reviewLoop 24s linear infinite}
 .review-track article{width:335px;min-height:270px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:flex-start;padding:27px 24px}
 .review-stars{color:#e4b52f!important;display:flex;justify-content:center;gap:3px;margin-bottom:14px}
 .review-person{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}
@@ -150,4 +150,23 @@ footer{text-align:center}
   .faq-grid{width:100%;padding-left:0;padding-right:0}
   .faq-list{max-width:100%;padding:0 2px}
   .faq-item button{padding:18px 0}
+}
+
+/* Posicionamento final das imagens */
+.clinic-copy .clinic-placeholder{order:2;margin:26px auto 28px}
+.clinic-copy .clinic-highlights{order:3}
+.clinic-copy .btn{order:4}
+.about-copy .idalecia-photo-placeholder{order:2;margin:24px auto 30px;width:min(620px,100%)}
+.about-copy>p{order:3}
+.about-copy .about-points{order:4}
+.about-copy .btn{order:5}
+.about-copy{display:flex}
+.about-copy>.eyebrow{order:1}
+.about-copy>h2{order:1}
+.about-copy>.idalecia-photo-placeholder{order:2}
+.about-copy>p{order:3}
+@media(max-width:620px){
+  .review-track{animation-duration:19s}
+  .clinic-copy .clinic-placeholder{margin-top:22px}
+  .about-copy .idalecia-photo-placeholder{min-height:250px}
 }
