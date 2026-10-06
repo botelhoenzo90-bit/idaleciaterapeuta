@@ -6,6 +6,7 @@
 - [x] Clarear início e ampliar/acelerar questões sem números.
 - [x] Reunir fotos do atendimento em Um espaço para você.
 - [x] Criar avaliações demonstrativas com estrelas e avatar neutro em esteira.
-- [ ] Inserir Google Maps com localização provisória identificada.
-- [ ] Adicionar botões nas seções de solução e benefícios.
-- [ ] Ajustar identificação dos perfis fictícios sem apresentá-los como pacientes reais.
+- [x] Inserir Google Maps com localização provisória identificada no centro de São Paulo.
+- [x] Adicionar botões nas seções de solução e benefícios; contato verificado.
+- [x] Ajustar identificação dos perfis fictícios sem apresentá-los como pacientes reais.
+- [ ] Confirmar carregamento do mapa no site publicado — Google bloqueia a origem localhost usada na verificação.
