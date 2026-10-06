@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Use imported Lovable Asset pointers for supplied photos so media stays CDN-hosted and replacements remain explicit.
+- Keep site presentation in the global stylesheet and site Button variants so spacing and interactions share one design system.
