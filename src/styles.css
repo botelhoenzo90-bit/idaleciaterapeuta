@@ -113,3 +113,13 @@ footer{text-align:center}
   .location-art{height:340px}
   .review-track article{width:300px}
 }
+
+
+/* Avaliações: hierarquia visual */
+.review-track article{justify-content:flex-start}
+.review-stars{order:1;margin-bottom:18px}
+.review-copy{order:2!important;font-family:Georgia,serif;font-size:16px!important;line-height:1.65!important;color:var(--ink)!important;margin:0 auto 24px!important;min-height:105px}
+.review-person{order:3;margin-top:auto!important;margin-bottom:0!important;padding-top:15px;border-top:1px solid var(--line);width:100%;justify-content:center}
+.review-avatar{background:#edf1ee;color:var(--sage-dark)}
+.review-person strong{font-family:Georgia,serif;font-size:12px}
+.review-person span{font-size:8px;color:#9ba6a2}
