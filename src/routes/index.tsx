@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import portrait from "@/assets/idalecia-retrato.png.asset.json";
 import office from "@/assets/idalecia-consultorio.png.asset.json";
 import clinic from "@/assets/clinica-fachada.png.asset.json";
@@ -184,10 +185,14 @@ function Index() {
             </div>
             <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></Button>
           </div>
-          <div className="clinic-gallery">
-            <figure className="clinic-photo"><img src={office.url} alt="Idalécia em seu espaço de atendimento" loading="lazy"/></figure>
-            <figure className="clinic-building"><img src={clinic.url} alt="Fachada da clínica DiagnoClin, espaço de atendimento" loading="lazy"/></figure>
-          </div>
+          <Carousel className="clinic-gallery" opts={{ loop: true }} aria-label="Fotos do espaço de atendimento">
+            <CarouselContent>
+              <CarouselItem><figure className="clinic-slide"><img src={office.url} alt="Idalécia em seu espaço de atendimento" loading="lazy"/></figure></CarouselItem>
+              <CarouselItem><figure className="clinic-slide"><img src={clinic.url} alt="Fachada da clínica DiagnoClin, espaço de atendimento" loading="lazy"/></figure></CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious variant="siteGhost" className="clinic-arrow clinic-arrow-prev" aria-label="Foto anterior" title="Foto anterior"/>
+            <CarouselNext variant="siteGhost" className="clinic-arrow clinic-arrow-next" aria-label="Próxima foto" title="Próxima foto"/>
+          </Carousel>
         </div>
       </section>
 
