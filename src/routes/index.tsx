@@ -59,6 +59,10 @@ export const Route = createFileRoute("/")({
 });
 
 const whatsapp = "https://wa.me/5583988655463";
+const mapsBrowserKey = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
+const provisionalMapUrl = mapsBrowserKey
+  ? `https://www.google.com/maps/embed/v1/view?key=${encodeURIComponent(mapsBrowserKey)}&center=-23.55052,-46.633308&zoom=14&maptype=roadmap`
+  : undefined;
 
 const issues = [
   ["Depressão", "Acolhimento e organização emocional para momentos de desânimo e perda de sentido."],
@@ -211,6 +215,7 @@ function Index() {
             <article><div className="method-icon"><Sparkles size={21}/></div><span>03</span><h3>Reorganizar</h3><p>Construir novas perspectivas para lidar com emoções, relações e situações do cotidiano.</p></article>
             <article><div className="method-icon"><ArrowRight size={21}/></div><span>04</span><h3>Avançar</h3><p>Levar mais consciência para suas escolhas, limites e próximos passos.</p></article>
           </div>
+          <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o processo terapêutico e agendar meu atendimento.")}>Começar meu processo <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
@@ -227,20 +232,24 @@ function Index() {
           <div className="benefit-grid">
             {[["Escuta individualizada","Cada pessoa possui uma história, experiências e necessidades diferentes."],["Formação especializada","Terapia TRG, Leitura Corporal e Comportamental e certificação internacional."],["Atendimento flexível","Opções presencial e online para facilitar o acesso ao acompanhamento."],["Ambiente acolhedor","Um espaço de respeito, privacidade e cuidado durante todo o processo."]].map(([t,d],i)=><article key={t}><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article>)}
           </div>
+          <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar um atendimento com você.")}>Agendar meu atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
       <section className="section reviews">
         <div className="container">
           <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Acolhimento que faz parte de <em>cada encontro.</em></h2><p>Avaliações ilustrativas com nomes fictícios — não representam depoimentos reais.</p></div>
-          <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({name,text})=><article className="review-card" key={name}><div className="review-stars" aria-label="Cinco estrelas ilustrativas">{[0,1,2,3,4].map(star=><Star key={star} size={18}/>)}</div><p>{text}</p><div className="review-person"><div className="review-avatar"><UserRound size={24}/></div><h3>{name}</h3><span>Exemplo ilustrativo</span></div></article>)}</div>)}</div></div>
+          <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({name,text})=><article className="review-card" key={name}><div className="review-stars" aria-label="Cinco estrelas ilustrativas">{[0,1,2,3,4].map(star=><Star key={star} size={18}/>)}</div><p>{text}</p><div className="review-person"><div className="review-avatar"><UserRound size={24}/></div><h3>{name}</h3><span>Perfil demonstrativo</span></div></article>)}</div>)}</div></div>
           <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
 
       <section className="section location">
         <div className="container location-grid">
-          <div className="location-map-pending"><MapPin size={36}/><h3>Localização do atendimento</h3><p>O endereço exato é confirmado no agendamento.</p><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Pode me enviar a localização da clínica no Google Maps?")}>Solicitar localização <MapPin size={18}/></Button></div>
+          <figure className="location-map">
+            {provisionalMapUrl ? <iframe title="Google Maps — localização provisória no centro de São Paulo" src={provisionalMapUrl} loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/> : <div className="location-map-pending"><MapPin size={36}/><p>Mapa temporariamente indisponível.</p></div>}
+            <figcaption>Localização provisória: centro de São Paulo. Não é o endereço da clínica.</figcaption>
+          </figure>
           <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade são informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância, com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte diretamente com a Idalécia os horários disponíveis.</span></div></div><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></Button></div>
         </div>
       </section>

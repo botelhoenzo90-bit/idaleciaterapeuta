@@ -11,3 +11,4 @@
 
 - Use imported Lovable Asset pointers for supplied photos so media stays CDN-hosted and replacements remain explicit.
 - Keep site presentation in the global stylesheet and site Button variants so spacing and interactions share one design system.
+- Render the location map with Google Maps Embed using the connector's public browser key; keep provisional coordinates visibly distinguished from the clinic address to prevent incorrect directions.
