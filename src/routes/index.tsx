@@ -20,7 +20,7 @@ import { useState } from "react";
 
 export const Route = createFileRoute("/")({ component: Index });
 
-const whatsapp = "https://wa.me/5500000000000";
+const whatsapp = "https://wa.me/5583988655463";
 
 const issues = [
   ["Depressão", "Acolhimento e organização emocional para momentos de desânimo e perda de sentido."],
