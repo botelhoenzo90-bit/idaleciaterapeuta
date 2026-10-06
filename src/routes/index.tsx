@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Users,
   Video,
 } from "lucide-react";
 import { useState } from "react";
@@ -51,9 +50,9 @@ const issues = [
 
 const reviews = [
   { title: "Acolhimento", text: "Um espaço de escuta, respeito e acolhimento para que você possa falar sobre o que realmente sente.", icon: HeartHandshake },
-  { title: "Clareza", text: "O processo pode ajudar você a compreender padrões emocionais e enxergar novas possibilidades.", icon: Brain },
-  { title: "Direcionamento", text: "Um acompanhamento estruturado para olhar para suas dificuldades com mais consciência e segurança.", icon: Sparkles },
-  { title: "Privacidade", text: "Atendimento pensado para preservar sua individualidade, com opção presencial ou online.", icon: ShieldCheck },
+  { title: "Clareza", text: "Um processo individualizado para compreender padrões emocionais e olhar para sua história com mais consciência.", icon: Brain },
+  { title: "Direcionamento", text: "Uma condução estruturada para observar suas dificuldades com mais segurança e construir novos caminhos.", icon: Sparkles },
+  { title: "Privacidade", text: "Atendimento pensado para respeitar sua individualidade, com opção presencial ou online.", icon: ShieldCheck },
 ];
 
 const faq = [
@@ -163,6 +162,28 @@ function Index() {
         </div>
       </section>
 
+      <section className="section clinic-story">
+        <div className="container clinic-story-grid">
+          <div className="clinic-copy">
+            <span className="eyebrow">UM ESPAÇO PARA VOCÊ</span>
+            <h2>Mais do que uma sessão: um lugar para <em>se ouvir.</em></h2>
+            <p>O atendimento foi pensado para oferecer uma experiência tranquila, reservada e acolhedora, onde você possa desacelerar e falar sobre aquilo que muitas vezes fica guardado.</p>
+            <p>Seja presencialmente ou online, cada contato busca preservar sua individualidade e criar um ambiente de confiança para o seu processo.</p>
+            <div className="clinic-highlights">
+              <div><ShieldCheck size={18}/><span><strong>Privacidade</strong>Um atendimento reservado e individual.</span></div>
+              <div><HeartHandshake size={18}/><span><strong>Acolhimento</strong>Escuta respeitosa, sem julgamentos.</span></div>
+              <div><Monitor size={18}/><span><strong>Flexibilidade</strong>Opções presencial e online.</span></div>
+            </div>
+            <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></button>
+          </div>
+          <div className="clinic-visual">
+            <div className="clinic-photo-main"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=88" alt="Ambiente acolhedor e profissional para atendimento" /></div>
+            <div className="clinic-photo-small"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=88" alt="Detalhes de um ambiente tranquilo" /></div>
+            <div className="clinic-badge"><Sparkles size={17}/><span><strong>Cuidado em cada detalhe</strong><small>Presencial • Online</small></span></div>
+          </div>
+        </div>
+      </section>
+
       <section className="section about" id="sobre">
         <div className="container about-grid">
           <div className="about-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=88" alt="Ambiente tranquilo para atendimento" /><div className="credential"><ShieldCheck size={20}/><span>Certificação internacional<br/><strong>Transtornos emocionais graves</strong></span></div></div>
@@ -173,6 +194,18 @@ function Index() {
             <p>Seu trabalho parte de uma escuta cuidadosa para compreender a pessoa além do sintoma, considerando padrões emocionais, experiências e comportamentos que fazem parte da sua história.</p>
             <div className="about-points"><div><Check size={17}/> Atendimento individual</div><div><Check size={17}/> Online e presencial</div><div><Check size={17}/> Leitura Corporal e Comportamental</div></div>
             <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de conhecer melhor seu trabalho.")}>Conhecer o trabalho <ArrowRight size={18}/></button>
+          </div>
+        </div>
+      </section>
+
+      <section className="section method-section">
+        <div className="container">
+          <div className="section-heading center"><span className="eyebrow">POR QUE BUSCAR ACOMPANHAMENTO?</span><h2>Quando você entende seus padrões, começa a enxergar <em>outras possibilidades.</em></h2><p>O processo terapêutico pode ser um espaço para organizar sentimentos, compreender experiências e desenvolver uma relação mais consciente consigo.</p></div>
+          <div className="method-cards">
+            <article><div className="method-icon"><Brain size={21}/></div><span>01</span><h3>Compreender</h3><p>Olhar para o que você sente e identificar padrões que se repetem na sua vida.</p></article>
+            <article><div className="method-icon"><HeartHandshake size={21}/></div><span>02</span><h3>Acolher</h3><p>Ter um espaço seguro para falar sobre experiências difíceis com respeito à sua história.</p></article>
+            <article><div className="method-icon"><Sparkles size={21}/></div><span>03</span><h3>Reorganizar</h3><p>Construir novas perspectivas para lidar com emoções, relações e situações do cotidiano.</p></article>
+            <article><div className="method-icon"><ArrowRight size={21}/></div><span>04</span><h3>Avançar</h3><p>Levar mais consciência para suas escolhas, limites e próximos passos.</p></article>
           </div>
         </div>
       </section>
@@ -196,14 +229,14 @@ function Index() {
       <section className="section reviews">
         <div className="container">
           <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Uma experiência baseada em <em>acolhimento e confiança.</em></h2><p>Espaço reservado para avaliações reais de pessoas atendidas pela Idalécia.</p></div>
-          <div className="review-grid">{reviews.map(({title,text:copy,icon:Icon})=><article key={title}><div className="review-icon"><Icon size={20}/></div><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={14} fill="currentColor"/>)}</div><h3>{title}</h3><p>{copy}</p><small>Conteúdo institucional — substitua por depoimentos reais</small></article>)}</div>
+          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-icon"><Icon size={20}/></div><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={14} fill="currentColor"/>)}</div><h3>{title}</h3><p>{copy}</p><small>Experiência de atendimento</small></article>)}</div></div>
           <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></button></div>
         </div>
       </section>
 
       <section className="section location">
         <div className="container location-grid">
-          <div className="location-card"><div className="map-placeholder"><MapPin size={34}/><span>Atendimento presencial</span><small>Localização a confirmar</small></div></div>
+          <div className="location-card"><div className="location-art"><MapPin size={32}/><span>Atendimento presencial</span><small>Localização e horários informados no agendamento</small></div></div>
           <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte os horários disponíveis diretamente com a Idalécia.</span></div></div><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></button></div>
         </div>
       </section>
