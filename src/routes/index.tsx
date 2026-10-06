@@ -13,10 +13,8 @@ import {
   ShieldCheck,
   Sparkles,
   Video,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/idalecia-retrato.png.asset.json";
 import office from "@/assets/idalecia-consultorio.png.asset.json";
@@ -28,6 +26,14 @@ import dependency from "@/assets/dependencia-emocional.png.asset.json";
 import fears from "@/assets/medos.png.asset.json";
 import trauma from "@/assets/traumas.png.asset.json";
 import panic from "@/assets/panico.webp.asset.json";
+import insomnia from "@/assets/insonia.png.asset.json";
+import esteem from "@/assets/autoestima.png.asset.json";
+import relationships from "@/assets/relacionamentos.png.asset.json";
+import grief from "@/assets/luto.png.asset.json";
+import sharePhoto from "@/assets/idalecia-compartilhar.jpg.asset.json";
+
+const siteUrl = "https://idaleciaterapeuta.lovable.app";
+const shareUrl = new URL(sharePhoto.url, siteUrl).href;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +44,14 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia e entre em contato para consultar disponibilidade." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: siteUrl },
+      { property: "og:image", content: shareUrl },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Idalécia da Guia, Terapeuta TRG" },
+      { name: "twitter:image", content: shareUrl },
     ],
+    links: [{ rel: "canonical", href: siteUrl }],
   }),
   component: Index,
 });
@@ -58,7 +71,7 @@ const issues = [
   ["Perdas e luto", "Um espaço seguro para atravessar mudanças e experiências de perda."],
 ];
 
-const issueImages = [depression, anxiety, dependency, fears, trauma, panic];
+const issueImages = [depression, anxiety, dependency, fears, trauma, panic, insomnia, esteem, relationships, grief];
 
 const reviews = [
   { title: "Acolhimento", text: "Um espaço de escuta, respeito e acolhimento para que você possa falar sobre o que realmente sente.", icon: HeartHandshake },
@@ -82,12 +95,10 @@ function goWhatsapp(message: string) {
 
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const carousel = useRef<HTMLDivElement>(null);
 
   return (
     <main className="site">
       <section className="hero" id="inicio">
-        <div className="hero-background"><img src={portrait.url} alt="Idalécia da Guia, Terapeuta TRG" fetchPriority="high" /></div>
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="eyebrow">CUIDADO COM A SUA HISTÓRIA</span>
@@ -122,18 +133,13 @@ function Index() {
             <h2>O que está acontecendo com você <em>merece ser compreendido.</em></h2>
             <p>O acompanhamento é individualizado e pode abordar diferentes dificuldades emocionais e comportamentais.</p>
           </div>
-          <div className="carousel-controls">
-            <Button variant="siteGhost" size="icon" aria-label="Questões anteriores" onClick={() => carousel.current?.scrollBy({left:-330,behavior:"smooth"})}><ChevronLeft/></Button>
-            <Button variant="siteGhost" size="icon" aria-label="Próximas questões" onClick={() => carousel.current?.scrollBy({left:330,behavior:"smooth"})}><ChevronRight/></Button>
-          </div>
-          <div className="issue-window" ref={carousel}><div className="issue-track">
-            {issues.map(([title,text], i) => {
-              const image = issueImages[i];
-              return <article className="issue-card" key={title}>
-                {image ? <img className="issue-image" src={image.url} alt={title} loading="lazy"/> : <div className="issue-symbol"><HeartHandshake size={36}/></div>}
+          <div className="issue-window"><div className="issue-track">
+            {[0, 1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>
+              {issues.map(([title,text], i) => <article className="issue-card" key={title}>
+                <img className="issue-image" src={issueImages[i]?.url} alt={copy === 0 ? title : ""} loading="lazy"/>
                 <div className="issue-body"><div className="issue-number">{String(i+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p></div>
-              </article>;
-            })}
+              </article>)}
+            </div>)}
           </div></div>
           <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button></div>
         </div>
@@ -222,7 +228,7 @@ function Index() {
       <section className="section reviews">
         <div className="container">
           <div className="section-heading center"><span className="eyebrow">ACOLHIMENTO E CONFIANÇA</span><h2>Cuidado em cada etapa do <em>seu processo.</em></h2></div>
-          <div className="review-grid">{reviews.map(({title,text:copy,icon:Icon})=><article key={title}><div className="review-icon"><Icon size={24}/></div><h3>{title}</h3><p>{copy}</p></article>)}</div>
+          <div className="review-window"><div className="review-track">{[0,1].map(copy => <div className="conveyor-group" aria-hidden={copy === 1 ? true : undefined} key={copy}>{reviews.map(({title,text,icon:Icon})=><article className="review-card" key={title}><div className="review-icon"><Icon size={24}/></div><h3>{title}</h3><p>{text}</p></article>)}</div>)}</div></div>
           <div className="center action"><Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></Button></div>
         </div>
       </section>
