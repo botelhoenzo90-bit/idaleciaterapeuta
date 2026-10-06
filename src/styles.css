@@ -123,3 +123,31 @@ footer{text-align:center}
 .review-avatar{background:#edf1ee;color:var(--sage-dark)}
 .review-person strong{font-family:Georgia,serif;font-size:12px}
 .review-person span{font-size:8px;color:#9ba6a2}
+
+/* Ajustes solicitados: imagens e FAQ */
+.hero-space-image{width:min(760px,100%);margin:26px auto 4px}
+.hero-space-placeholder{min-height:220px;border:1px dashed #b9cbc3;border-radius:26px;background:#f1f5f1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--sage-dark);box-shadow:0 14px 35px rgba(49,72,64,.05)}
+.hero-space-placeholder span{font-size:10px;color:var(--muted)}
+.hero-space-placeholder svg{margin-bottom:3px}
+.idalecia-photo-placeholder{width:min(620px,100%);min-height:300px;margin:30px auto 0;border:1px dashed #b9cbc3;border-radius:25px;background:#f1f5f1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--sage-dark)}
+.idalecia-photo-placeholder span{font-size:10px;color:var(--muted)}
+.about-copy{width:100%}
+.faq{overflow:hidden}
+.faq-grid{width:min(100%,1080px);grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);align-items:start}
+.faq-intro,.faq-list{min-width:0}
+.faq-list{width:100%;max-width:850px}
+.faq-item{width:100%;overflow:hidden}
+.faq-item button{padding-left:4px;padding-right:4px}
+.faq-item button span{min-width:0;overflow-wrap:anywhere}
+.faq-item p{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .faq-grid{width:100%;grid-template-columns:1fr}
+  .faq-list{max-width:760px}
+}
+@media(max-width:620px){
+  .hero-space-placeholder{min-height:180px}
+  .idalecia-photo-placeholder{min-height:250px}
+  .faq-grid{width:100%;padding-left:0;padding-right:0}
+  .faq-list{max-width:100%;padding:0 2px}
+  .faq-item button{padding:18px 0}
+}
