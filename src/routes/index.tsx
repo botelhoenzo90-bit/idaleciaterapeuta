@@ -73,21 +73,6 @@ function Index() {
 
   return (
     <main className="site">
-      <header className="topbar">
-        <div className="container topbar-inner">
-          <a className="brand" href="#inicio">Idalécia <span>da Guia</span></a>
-          <nav>
-            <a href="#processo">Como funciona</a>
-            <a href="#especialidades">Questões trabalhadas</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#faq">Dúvidas</a>
-          </nav>
-          <button className="btn btn-small" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de saber mais sobre a terapia.")}>
-            <MessageCircle size={17}/> Agendar conversa
-          </button>
-        </div>
-      </header>
-
       <section className="hero" id="inicio">
         <div className="hero-glow"/>
         <div className="container hero-grid">
@@ -106,25 +91,23 @@ function Index() {
               <div><strong>Presencial</strong><span>Atendimento individual</span></div>
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="hero-photo">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=88" alt="Profissional em ambiente acolhedor de atendimento" />
-              <div className="photo-card"><Sparkles size={18}/><div><strong>Um espaço para você</strong><span>Escuta • acolhimento • direcionamento</span></div></div>
-            </div>
-            <div className="hero-orbit orbit-one"/>
-            <div className="hero-orbit orbit-two"/>
+          <div className="hero-identity">
+            <div className="hero-name">Idalécia da Guia</div>
+            <div className="hero-title">Terapeuta TRG</div>
+            <div className="hero-divider"></div>
+            <div className="hero-credentials"><span><ShieldCheck size={15}/> Certificação internacional</span><span><Monitor size={15}/> Presencial e online</span></div>
           </div>
         </div>
       </section>
 
-      <div className="marquee"><div><span>ANSIEDADE</span><i>✦</i><span>DEPRESSÃO</span><i>✦</i><span>AUTOESTIMA</span><i>✦</i><span>TRAUMAS</span><i>✦</i><span>RELACIONAMENTOS</span><i>✦</i><span>MEDOS</span><i>✦</i></div></div>
+      <div className="marquee"><div><span>ANSIEDADE</span><i>✦</i><span>DEPRESSÃO</span><i>✦</i><span>DEPENDÊNCIA EMOCIONAL</span><i>✦</i><span>TRAUMAS</span><i>✦</i><span>MEDOS</span><i>✦</i><span>AUTOESTIMA</span><i>✦</i><span>RELACIONAMENTOS</span><i>✦</i><span>FOBIAS</span><i>✦</i><span>LUTO</span><i>✦</i><span>ANSIEDADE</span><i>✦</i><span>DEPRESSÃO</span><i>✦</i><span>DEPENDÊNCIA EMOCIONAL</span><i>✦</i><span>TRAUMAS</span><i>✦</i><span>MEDOS</span><i>✦</i></div></div>
 
       <section className="section intro-section">
         <div className="container narrow center">
           <span className="eyebrow">VOCÊ NÃO PRECISA IGNORAR O QUE SENTE</span>
           <h2>Quando algo dentro de você pede <em>atenção</em>, ouvir pode ser o primeiro passo.</h2>
           <p>Existem padrões emocionais que se repetem, medos que limitam, relações que machucam e sentimentos que parecem difíceis de explicar. A terapia cria um espaço seguro para olhar para tudo isso com mais consciência e cuidado.</p>
-          <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de conversar sobre o meu momento emocional.")}>Conversar com a Idalécia <ArrowRight size={18}/></button>
+          <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></button>
         </div>
       </section>
 
@@ -140,7 +123,7 @@ function Index() {
               <article className="issue-card" key={i}><div className="issue-number">{String((i % issues.length)+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p><span>Conhecer o processo <ArrowRight size={14}/></span></article>
             ))}
           </div></div>
-          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero entender se a Terapia TRG pode me ajudar.")}>Quero entender meu caso <ArrowRight size={18}/></button></div>
+          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></button></div>
         </div>
       </section>
 
@@ -159,6 +142,7 @@ function Index() {
               ["04","Novos caminhos","O objetivo é ampliar consciência e construir formas mais saudáveis de lidar com suas experiências."]
             ].map(([n,t,d]) => <article className="step" key={n}><div className="step-num">{n}</div><div><h3>{t}</h3><p>{d}</p></div></article>)}
           </div>
+          <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button></div>
         </div>
       </section>
 
@@ -176,11 +160,7 @@ function Index() {
             </div>
             <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conhecer o espaço e entender como funciona o atendimento.")}>Conhecer o atendimento <ArrowRight size={18}/></button>
           </div>
-          <div className="clinic-visual">
-            <div className="clinic-photo-main"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=88" alt="Ambiente acolhedor e profissional para atendimento" /></div>
-            <div className="clinic-photo-small"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=88" alt="Detalhes de um ambiente tranquilo" /></div>
-            <div className="clinic-badge"><Sparkles size={17}/><span><strong>Cuidado em cada detalhe</strong><small>Presencial • Online</small></span></div>
-          </div>
+          <div className="clinic-placeholder"><div className="placeholder-inner"><Sparkles size={28}/><strong>Imagem do espaço</strong><span>Área reservada para a foto da clínica</span></div></div>
         </div>
       </section>
 
@@ -193,7 +173,7 @@ function Index() {
             <p>Idalécia da Guia é Terapeuta TRG, com especialização complementar em Leitura Corporal e Comportamental e certificação internacional em transtornos emocionais graves.</p>
             <p>Seu trabalho parte de uma escuta cuidadosa para compreender a pessoa além do sintoma, considerando padrões emocionais, experiências e comportamentos que fazem parte da sua história.</p>
             <div className="about-points"><div><Check size={17}/> Atendimento individual</div><div><Check size={17}/> Online e presencial</div><div><Check size={17}/> Leitura Corporal e Comportamental</div></div>
-            <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de conhecer melhor seu trabalho.")}>Conhecer o trabalho <ArrowRight size={18}/></button>
+            <button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa.")}>Agendar conversa <MessageCircle size={18}/></button>
           </div>
         </div>
       </section>
@@ -219,9 +199,9 @@ function Index() {
 
       <section className="section benefits">
         <div className="container">
-          <div className="section-heading center"><span className="eyebrow">O QUE VOCÊ PODE ENCONTRAR NO PROCESSO</span><h2>Mais do que aliviar um momento: <em>entender o que existe por trás dele.</em></h2></div>
+          <div className="section-heading center"><span className="eyebrow">POR QUE ESCOLHER A IDALÉCIA</span><h2>Um atendimento pensado para olhar para <em>você por inteiro.</em></h2><p>Experiência, acolhimento e acompanhamento individualizado para quem deseja compreender melhor o que está vivendo.</p></div>
           <div className="benefit-grid">
-            {[["Mais consciência","Perceber padrões e compreender melhor suas próprias reações."],["Mais segurança","Desenvolver recursos para lidar com situações que antes pareciam maiores que você."],["Mais clareza","Olhar para relações, escolhas e sentimentos com novas perspectivas."],["Mais autonomia","Construir uma relação mais consciente com sua própria história e seus limites."]].map(([t,d],i)=><article key={t}><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article>)}
+            {[["Escuta individualizada","Cada pessoa possui uma história, experiências e necessidades diferentes."],["Formação especializada","Terapia TRG, Leitura Corporal e Comportamental e certificação internacional."],["Atendimento flexível","Opções presencial e online para facilitar o acesso ao acompanhamento."],["Ambiente acolhedor","Um espaço de respeito, privacidade e cuidado durante todo o processo."]].map(([t,d],i)=><article key={t}><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article>)}
           </div>
         </div>
       </section>
@@ -229,14 +209,14 @@ function Index() {
       <section className="section reviews">
         <div className="container">
           <div className="section-heading center"><span className="eyebrow">AVALIAÇÕES</span><h2>Uma experiência baseada em <em>acolhimento e confiança.</em></h2><p>Espaço reservado para avaliações reais de pessoas atendidas pela Idalécia.</p></div>
-          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-icon"><Icon size={20}/></div><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={14} fill="currentColor"/>)}</div><h3>{title}</h3><p>{copy}</p><small>Experiência de atendimento</small></article>)}</div></div>
+          <div className="review-window"><div className="review-track">{[...reviews,...reviews].map(({title,text:copy,icon:Icon},i)=><article key={i}><div className="review-stars">{[1,2,3,4,5].map(s=><Star key={s} size={15} fill="currentColor"/>)}</div><div className="review-person"><div className="review-avatar">👤</div><div><strong>Paciente</strong><span>Atendimento terapêutico</span></div></div><p>“{copy}”</p></article>)}</div></div>
           <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero conversar sobre um atendimento.")}>Agendar atendimento <MessageCircle size={18}/></button></div>
         </div>
       </section>
 
       <section className="section location">
         <div className="container location-grid">
-          <div className="location-card"><div className="location-art"><MapPin size={32}/><span>Atendimento presencial</span><small>Localização e horários informados no agendamento</small></div></div>
+          <div className="location-card"><div className="location-art"><iframe title="Mapa de localização" src="https://www.google.com/maps?q=Rua%20das%20Flores%2C%20100%2C%20Centro%2C%20Curitiba%20-%20PR&output=embed" loading="lazy"></iframe><div className="map-label"><MapPin size={18}/><span>Localização provisória</span><small>Endereço será atualizado posteriormente</small></div></div></div>
           <div className="location-copy"><span className="eyebrow">ATENDIMENTO</span><h2>Presencial ou online, <em>onde fizer sentido para você.</em></h2><p>Escolha a modalidade mais adequada para sua rotina. Para atendimento presencial, entre em contato para consultar endereço, disponibilidade e horários.</p><div className="location-list"><div><MapPin size={18}/><span><strong>Presencial</strong>Endereço e disponibilidade informados no agendamento.</span></div><div><Video size={18}/><span><strong>Online</strong>Atendimento à distância com praticidade e privacidade.</span></div><div><Clock3 size={18}/><span><strong>Horários</strong>Consulte os horários disponíveis diretamente com a Idalécia.</span></div></div><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Gostaria de consultar horários e modalidade de atendimento.")}>Consultar horários <ArrowRight size={18}/></button></div>
         </div>
       </section>
