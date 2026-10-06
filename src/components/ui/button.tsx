@@ -16,12 +16,18 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        site: "site-button",
+        siteLight: "site-button site-button-light",
+        siteGhost: "site-button site-button-ghost",
+        sitePlain: "site-button-plain",
+        whatsapp: "floating-whatsapp",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        site: "site-button-size",
       },
     },
     defaultVariants: {
