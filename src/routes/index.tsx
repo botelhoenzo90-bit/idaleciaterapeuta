@@ -77,7 +77,15 @@ function Index() {
         <div className="hero-glow"/>
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="eyebrow"><span/> TERAPEUTA TRG <span/></div>
+            <div className="hero-identity">
+              <div className="hero-name">Idalécia da Guia</div>
+              <div className="hero-title">Terapeuta TRG</div>
+              <div className="hero-divider"></div>
+              <div className="hero-credentials">
+                <span><ShieldCheck size={15}/> Certificação internacional</span>
+                <span><Monitor size={15}/> Atendimento presencial e online</span>
+              </div>
+            </div>
             <h1>Reestruture seu emocional e <em>liberte-se de padrões</em> que ainda causam sofrimento.</h1>
             <p className="hero-lead">Terapia TRG para pessoas que enfrentam ansiedade, depressão, dependência emocional, traumas, medos e outras dificuldades emocionais.</p>
             <p className="hero-meta"><Monitor size={16}/> Atendimento presencial e online <span>•</span> <ShieldCheck size={16}/> Certificação internacional</p>
@@ -90,12 +98,6 @@ function Index() {
               <div><strong>Online</strong><span>De onde você estiver</span></div>
               <div><strong>Presencial</strong><span>Atendimento individual</span></div>
             </div>
-          </div>
-          <div className="hero-identity">
-            <div className="hero-name">Idalécia da Guia</div>
-            <div className="hero-title">Terapeuta TRG</div>
-            <div className="hero-divider"></div>
-            <div className="hero-credentials"><span><ShieldCheck size={15}/> Certificação internacional</span><span><Monitor size={15}/> Presencial e online</span></div>
           </div>
         </div>
       </section>
@@ -120,7 +122,7 @@ function Index() {
           </div>
           <div className="issue-window"><div className="issue-track">
             {[...issues, ...issues].map(([title,text], i) => (
-              <article className="issue-card" key={i}><div className="issue-number">{String((i % issues.length)+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p><span>Conhecer o processo <ArrowRight size={14}/></span></article>
+              <article className="issue-card" key={i}><div className="issue-number">{String((i % issues.length)+1).padStart(2,"0")}</div><h3>{title}</h3><p>{text}</p></article>
             ))}
           </div></div>
           <div className="center action"><button className="btn" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></button></div>
@@ -180,7 +182,7 @@ function Index() {
 
       <section className="section method-section">
         <div className="container">
-          <div className="section-heading center"><span className="eyebrow">POR QUE BUSCAR ACOMPANHAMENTO?</span><h2>Quando você entende seus padrões, começa a enxergar <em>outras possibilidades.</em></h2><p>O processo terapêutico pode ser um espaço para organizar sentimentos, compreender experiências e desenvolver uma relação mais consciente consigo.</p></div>
+          <div className="section-heading center"><span className="eyebrow">A SOLUÇÃO COMEÇA PELO CUIDADO</span><h2>Existe um caminho para sair do automático e construir <em>novas possibilidades.</em></h2><p>O processo terapêutico oferece um espaço estruturado para compreender o que está por trás do sofrimento, reorganizar padrões emocionais e avançar com mais consciência.</p></div>
           <div className="method-cards">
             <article><div className="method-icon"><Brain size={21}/></div><span>01</span><h3>Compreender</h3><p>Olhar para o que você sente e identificar padrões que se repetem na sua vida.</p></article>
             <article><div className="method-icon"><HeartHandshake size={21}/></div><span>02</span><h3>Acolher</h3><p>Ter um espaço seguro para falar sobre experiências difíceis com respeito à sua história.</p></article>
