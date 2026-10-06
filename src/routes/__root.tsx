@@ -16,7 +16,7 @@ export const Route=createRootRouteWithContext<{queryClient:QueryClient}>()({
   {name:"author",content:"Idalécia da Guia"},{property:"og:title",content:"Idalécia da Guia | Terapeuta TRG"},
   {property:"og:description",content:"Reestruture seu emocional e liberte-se de padrões que ainda causam sofrimento."},{property:"og:type",content:"website"},
   {name:"twitter:card",content:"summary_large_image"}
- ],links:[{rel:"stylesheet",href:appCss},{rel:"icon",href:"/favicon.ico",type:"image/x-icon"}]}),
+ ],links:[{rel:"stylesheet",href:appCss},{rel:"icon",href:"/favicon.png",type:"image/png"}]}),
  shellComponent:RootShell,component:RootComponent,notFoundComponent:NotFoundComponent,errorComponent:ErrorComponent
 });
 function RootShell({children}:{children:ReactNode}){return <html lang="pt-BR"><head><HeadContent/></head><body>{children}<Scripts/></body></html>}
