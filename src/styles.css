@@ -67,8 +67,8 @@ footer{background:var(--footer-surface);color:var(--footer-text);padding:44px 0 
 .site-button-gold::before{content:"";position:absolute;inset:-50% auto -50% -65%;width:35%;background:linear-gradient(90deg,transparent,color-mix(in oklab,var(--button-shine) 65%,transparent),transparent);transform:skewX(-22deg);animation:button-shine 3.8s ease-in-out infinite;pointer-events:none;z-index:-1}
 .site-button-brown{background:var(--button-brown);border-color:var(--button-brown);--button-pulse-color:var(--button-brown)!important}
 .site-button-brown:hover{background:var(--button-brown-hover)}
-.site-button-pulse{animation:button-breath 4s ease-in-out infinite;transform-origin:center center;will-change:transform}
-@keyframes button-breath{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.site-button-pulse{animation:button-breath 2.8s ease-in-out infinite;transform-origin:center center;will-change:transform}
+@keyframes button-breath{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.045) translateY(-2px)}}
 @keyframes button-shine{0%,20%{left:-65%}65%,100%{left:135%}}
 @media(max-width:700px){.button-comparison{gap:28px 20px;padding:12px 0}.button-comparison .site-button{padding:12px 14px;font-size:13px}}
 @media(max-width:480px){.button-comparison{grid-template-columns:1fr;max-width:320px}}
