@@ -1,5 +1,6 @@
 ## Ajustes solicitados
-- [ ] Configurar SEO local, metadados e sitemap e verificar cadastro no Google Search Console.
+- [x] Configurar e verificar SEO local, metadados, dados estruturados e sitemap na prévia.
+- [ ] Concluir verificação do Google Search Console e enviar sitemap — aguarda publicação da identificação do Google e do sitemap.
 - [x] Comparar na segunda seção o botão atual e versões verdes, douradas com brilho e marrons, normais e pulsantes.
 - [x] Colocar fotos da Idalécia, clínica e WhatsApp.
 - [x] Adicionar as imagens disponíveis ao carrossel; manter os demais itens sem fotos até o envio.
