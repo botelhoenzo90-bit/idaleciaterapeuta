@@ -41,12 +41,15 @@ const siteUrl = "https://idaleciaterapeuta.lovable.app";
 const shareUrl = new URL(sharePhoto.url, siteUrl).href;
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "Idalécia da Guia | Terapia TRG presencial e online" },
-      { name: "description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia, as questões trabalhadas e as modalidades presencial e online." },
-      { property: "og:title", content: "Idalécia da Guia | Terapia TRG presencial e online" },
-      { property: "og:description", content: "Conheça o atendimento de Terapia TRG com Idalécia da Guia e entre em contato para consultar disponibilidade." },
+      { title: "Idalécia da Guia | Terapia TRG em Rio Tinto, PB e online" },
+      { name: "description", content: "Terapia TRG com Idalécia da Guia em Rio Tinto, PB e online. Atendimento individual para ansiedade, traumas e questões emocionais. Consulte horários." },
+      { property: "og:title", content: "Idalécia da Guia | Terapia TRG em Rio Tinto, PB e online" },
+      { property: "og:description", content: "Conheça Idalécia da Guia, Terapeuta TRG. Atendimento presencial no Centro de Rio Tinto, PB e online, com escuta individualizada e acolhimento." },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: siteUrl },
@@ -57,6 +60,26 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: shareUrl },
     ],
     links: [{ rel: "canonical", href: siteUrl }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Idalécia da Guia — Terapeuta TRG", inLanguage: "pt-BR" },
+          {
+            "@type": "LocalBusiness", "@id": `${siteUrl}/#atendimento`,
+            name: "Idalécia da Guia — Terapeuta TRG", url: siteUrl,
+            telephone: "+55 83 98865-5463",
+            description: "Atendimento de Terapia TRG presencial em Rio Tinto, PB e online.",
+            address: {
+              "@type": "PostalAddress", streetAddress: clinicAddress.street,
+              addressLocality: "Rio Tinto", addressRegion: "PB",
+              postalCode: clinicAddress.postalCode, addressCountry: "BR",
+            },
+          },
+        ],
+      }),
+    }],
   }),
   component: Index,
 });

@@ -1,4 +1,5 @@
 ## Ajustes solicitados
+- [ ] Configurar SEO local, metadados e sitemap e verificar cadastro no Google Search Console.
 - [x] Comparar na segunda seção o botão atual e versões verdes, douradas com brilho e marrons, normais e pulsantes.
 - [x] Colocar fotos da Idalécia, clínica e WhatsApp.
 - [x] Adicionar as imagens disponíveis ao carrossel; manter os demais itens sem fotos até o envio.

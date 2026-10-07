@@ -9,13 +9,11 @@ function NotFoundComponent(){return <div className="flex min-h-screen items-cent
 function ErrorComponent({error,reset}:ErrorComponentProps){console.error(error);const router=useRouter();useEffect(()=>{reportLovableError(error,{boundary:"tanstack_root_error_component"});},[error]);return <div className="flex min-h-screen items-center justify-center px-4"><div className="max-w-md text-center"><h1 className="text-xl font-semibold">Não foi possível carregar a página</h1><p className="mt-2 text-sm text-muted-foreground">Atualize a página e tente novamente.</p><div className="mt-6 flex justify-center gap-2"><button onClick={()=>{router.invalidate();reset();}} className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground">Tentar novamente</button><a href="/" className="rounded-md border px-4 py-2 text-sm">Início</a></div></div></div>}
 
 export const Route=createRootRouteWithContext<{queryClient:QueryClient}>()({
+ staticData: { sitemap: false },
  head:()=>({meta:[
   {charSet:"utf-8"},{name:"viewport",content:"width=device-width, initial-scale=1"},
-  {title:"Idalécia da Guia | Terapeuta TRG"},
-  {name:"description",content:"Terapia TRG com Idalécia da Guia. Atendimento presencial e online para questões emocionais como ansiedade, depressão, dependência emocional, traumas, medos e outras dificuldades."},
-  {name:"author",content:"Idalécia da Guia"},{property:"og:title",content:"Idalécia da Guia | Terapeuta TRG"},
-  {property:"og:description",content:"Reestruture seu emocional e liberte-se de padrões que ainda causam sofrimento."},{property:"og:type",content:"website"},
-  {name:"twitter:card",content:"summary_large_image"}
+  {name:"author",content:"Idalécia da Guia"},
+  {property:"og:site_name",content:"Idalécia da Guia — Terapeuta TRG"}
  ],links:[{rel:"stylesheet",href:appCss},{rel:"icon",href:"/favicon.png",type:"image/png"}]}),
  shellComponent:RootShell,component:RootComponent,notFoundComponent:NotFoundComponent,errorComponent:ErrorComponent
 });

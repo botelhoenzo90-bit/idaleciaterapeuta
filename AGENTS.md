@@ -14,3 +14,5 @@
 - Keep comparison button colors as shared Button variants and pulse/shine effects in the global stylesheet, so the comparison does not change buttons elsewhere.
 - Use the shared Embla-backed Carousel for the clinic photo gallery so arrow, keyboard and swipe navigation use the existing controls.
 - Keep the clinic address in the shared clinic-location module and use it for both the displayed address and Google Maps Embed place query, with the connector's public browser key, to prevent divergent destinations.
+- Keep page-specific SEO metadata and factual business structured data on content routes, using the shared clinic address to avoid conflicting information.
+- Derive sitemap URLs from explicit route staticData.sitemap decisions with the shared sitemap helper, so future public pages stay discoverable without manual URL lists.
