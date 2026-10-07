@@ -1,4 +1,5 @@
 ## Ajustes solicitados
+- [ ] Clarear os fundos em bege, diferenciar Conhecer o processo, corrigir setas laterais e conferir SEO na prévia e no site publicado.
 - [x] Configurar e verificar SEO local, metadados, dados estruturados e sitemap na prévia.
 - [ ] Concluir verificação do Google Search Console e enviar sitemap — aguarda publicação da identificação do Google e do sitemap.
 - [x] Aplicar o dourado sem pulsação nos botões e remover a comparação da segunda seção.

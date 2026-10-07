@@ -140,7 +140,7 @@ function Index() {
             <div className="hero-credentials"><span><ShieldCheck size={17}/> Certificação internacional</span><span><Monitor size={17}/> Presencial e online</span></div>
             <div className="hero-actions">
               <Button variant="siteGold" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar uma conversa sobre a Terapia TRG.")}><MessageCircle/> Agendar uma conversa</Button>
-              <Button variant="siteGold" size="site" asChild><a href="#processo">Conhecer o processo <ArrowRight/></a></Button>
+              <Button variant="siteGhost" size="site" asChild><a href="#processo">Conhecer o processo <ArrowRight/></a></Button>
             </div>
           </div>
         </div>
