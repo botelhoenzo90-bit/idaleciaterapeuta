@@ -129,7 +129,16 @@ function Index() {
           <span className="eyebrow">QUANDO O EMOCIONAL PEDE CUIDADO</span>
           <h2>Quando algo dentro de você pede <em>atenção</em>, ouvir pode ser o primeiro passo.</h2>
           <p>Existem padrões emocionais que se repetem, medos que limitam, relações que machucam e sentimentos que parecem difíceis de explicar. A terapia cria um espaço seguro para olhar para tudo isso com mais consciência e cuidado.</p>
-          <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+          <div className="button-comparison">
+            <Button variant="site" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+            <Button variant="site" size="site" className="site-button-pulse" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+            <Button variant="siteWhatsapp" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}><img className="button-whatsapp-logo" src={whatsappIcon.url} alt=""/>Agendar meu atendimento</Button>
+            <Button variant="siteWhatsapp" size="site" className="site-button-pulse" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}><img className="button-whatsapp-logo" src={whatsappIcon.url} alt=""/>Agendar meu atendimento</Button>
+            <Button variant="siteGold" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+            <Button variant="siteGold" size="site" className="site-button-pulse" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+            <Button variant="siteBrown" size="site" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+            <Button variant="siteBrown" size="site" className="site-button-pulse" onClick={() => goWhatsapp("Olá, Idalécia! Quero agendar meu atendimento.")}>Agendar meu atendimento <MessageCircle size={18}/></Button>
+          </div>
         </div>
       </section>
 

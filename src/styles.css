@@ -16,6 +16,10 @@
  --shadow-button: 0 6px 16px color-mix(in oklab,var(--primary) 18%,transparent);
  --hero-overlay: linear-gradient(90deg,var(--hero-surface) 0%, color-mix(in oklab,var(--hero-surface) 96%,transparent) 37%,color-mix(in oklab,var(--hero-surface) 40%,transparent) 63%,transparent 78%);
  --font-body: "Segoe UI", system-ui, sans-serif; --font-heading: Georgia, serif;
+ --button-whatsapp: #147a3e; --button-whatsapp-hover: #0e6030;
+ --button-gold: #d3b370; --button-gold-hover: #c7a259; --button-gold-text: #30282d;
+ --button-brown: #805947; --button-brown-hover: #684635;
+ --button-shine: #fffaf7;
 }
 @theme inline {
  --color-background:var(--background); --color-foreground:var(--foreground);
@@ -53,6 +57,21 @@ footer{background:var(--footer-surface);color:var(--footer-text);padding:44px 0 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.issue-window{scroll-behavior:auto}}
 
 /* Full-width issues and testimonial layout */
+.button-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 28px;max-width:680px;margin:32px auto 0;padding:12px}
+.button-comparison .site-button{width:100%;min-height:52px;position:relative;isolation:isolate;--button-pulse-color:var(--primary)}
+.site-button-whatsapp{background:var(--button-whatsapp);border-color:var(--button-whatsapp);--button-pulse-color:var(--button-whatsapp)!important}
+.site-button-whatsapp:hover{background:var(--button-whatsapp-hover)}
+.button-whatsapp-logo{width:26px;height:26px;flex-shrink:0;object-fit:contain}
+.site-button-gold{background:linear-gradient(115deg,var(--button-gold-hover),var(--button-gold),var(--button-gold-hover));border-color:var(--button-gold);color:var(--button-gold-text);overflow:hidden;--button-pulse-color:var(--button-gold)!important}
+.site-button-gold:hover{background:var(--button-gold-hover)}
+.site-button-gold::before{content:"";position:absolute;inset:-50% auto -50% -65%;width:35%;background:linear-gradient(90deg,transparent,color-mix(in oklab,var(--button-shine) 65%,transparent),transparent);transform:skewX(-22deg);animation:button-shine 3.8s ease-in-out infinite;pointer-events:none;z-index:-1}
+.site-button-brown{background:var(--button-brown);border-color:var(--button-brown);--button-pulse-color:var(--button-brown)!important}
+.site-button-brown:hover{background:var(--button-brown-hover)}
+.site-button-pulse{animation:button-pulse 2s ease-out infinite}
+@keyframes button-pulse{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--button-pulse-color,var(--primary)) 40%,transparent)}75%,100%{box-shadow:0 0 0 12px color-mix(in oklab,var(--button-pulse-color,var(--primary)) 0%,transparent)}}
+@keyframes button-shine{0%,20%{left:-65%}65%,100%{left:135%}}
+@media(max-width:700px){.button-comparison{gap:28px 20px;padding:12px 0}.button-comparison .site-button{padding:12px 14px;font-size:13px}}
+@media(max-width:480px){.button-comparison{grid-template-columns:1fr;max-width:320px}}
 .issues-container{width:100%;max-width:none}.issues-container .section-heading{width:calc(100% - 40px)}
 .reviews-container{width:100%;max-width:none}.reviews-container .section-heading{width:calc(100% - 40px)}.reviews-container .action{width:calc(100% - 40px);margin-inline:auto}.review-window{padding-block:24px}.review-card{height:auto;overflow:visible}.review-card p{overflow-wrap:anywhere}
 .clinic-gallery{min-width:0;width:100%;padding-inline:0}.clinic-slide{height:620px;display:flex;justify-content:center;align-items:center}.clinic-slide img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;border-radius:24px}.clinic-gallery .clinic-arrow{width:40px;height:40px;min-height:0;padding:0;border-radius:50%;background:var(--paper);box-shadow:var(--shadow-card)}.clinic-gallery .clinic-arrow-prev{left:8px}.clinic-gallery .clinic-arrow-next{right:8px}
