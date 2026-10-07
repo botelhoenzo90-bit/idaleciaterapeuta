@@ -49,6 +49,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Idalécia da Guia | Terapia TRG em Rio Tinto, PB e online" },
       { property: "og:description", content: "Conheça Idalécia da Guia, Terapeuta TRG. Atendimento presencial no Centro de Rio Tinto, PB e online, com escuta individualizada e acolhimento." },
       { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "google-site-verification", content: "9myn0HdI7aGpUZnVvPyhIOqrxVOLgTJA9XtYO1VNmew" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
